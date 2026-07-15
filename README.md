@@ -4,8 +4,8 @@ Bem-vindo(a) à **etapa prática do processo seletivo para o Intensivo Maker**.
 
 Esta atividade tem como objetivo avaliar competências técnicas relacionadas a **Machine Learning**, **Visão Computacional** e **Otimização de modelos para sistemas embarcados (Edge AI)**, a partir da aplicação prática dos conhecimentos adquiridos nos cursos EAD da etapa anterior.
 
-> 🎯 **Importante**  
-> O foco deste desafio é avaliar sua capacidade de **projetar, treinar e otimizar um modelo de IA**.  
+> 🎯 **Importante**
+> O foco deste desafio é avaliar sua capacidade de **projetar, treinar e otimizar um modelo de IA** — e de **entregar corretamente** os artefatos gerados.
 
 ---
 
@@ -13,41 +13,31 @@ Esta atividade tem como objetivo avaliar competências técnicas relacionadas a 
 
 - 🏁 [Passo 0 – Antes de Tudo](#-passo-0-antes-de-tudo)
 - ⚙ [Passo 1 – Preparando o Ambiente](#-passo-1-preparando-o-ambiente)
-- 💻 [Passo 2 – O Desafio Técnico](#-passo-2-o-desafio-técnico)
-  - 🎯 [Conjunto de Dados](#-conjunto-de-dados)
-  - 📂 [Estrutura do Projeto](#-estrutura-do-projeto)
-  - 📚 [Material de Apoio](#-material-de-apoio)
-  - ⚖️ [Critérios de Avaliação](#️-critérios-de-avaliação)
+- 🧭 [Passo 2 – Escolha do Projeto](#-passo-2-escolha-do-projeto)
 - 📤 [Passo 3 – Instruções de Entrega](#-passo-3-instruções-de-entrega)
-  - 📝 [Relatório do Candidato](#-relatório-do-candidato)
+- ⚠️ [Restrições Gerais de Engenharia](#️-restrições-gerais-de-engenharia)
+- 🆘 [Suporte](#-suporte)
 
 ---
 
 ## 🏁 Passo 0: Antes de Tudo
 
-Caso você **nunca tenha utilizado Git ou GitHub**, não se preocupe.  
-Siga atentamente as etapas abaixo.
-
+Caso você **nunca tenha utilizado Git ou GitHub**, não se preocupe. Siga atentamente as etapas abaixo.
 
 ### 1️⃣ Criação de Conta no GitHub
 
-1. Acesse: https://github.com  
-2. Clique em **Sign up**  
-3. Crie sua conta gratuita seguindo as instruções da plataforma  
+1. Acesse: https://github.com
+2. Clique em **Sign up**
+3. Crie sua conta gratuita seguindo as instruções da plataforma
 
 (*O GitHub será utilizado para envio, versionamento e correção automática do seu projeto.*)
-
 
 ### 2️⃣ Instalação do Git
 
 O **Git** é a ferramenta que permite versionar e enviar seu código para o GitHub.
 
-- **Windows**  
-  Baixe e instale o **Git Bash**:  
-  https://git-scm.com/downloads
-
-- **Linux / macOS**  
-  Verifique se o Git já está instalado:
+- **Windows** — Baixe e instale o **Git Bash**: https://git-scm.com/downloads
+- **Linux / macOS** — Verifique se o Git já está instalado:
   ```bash
   git --version
   ```
@@ -60,17 +50,10 @@ Para desenvolver o desafio, você deverá criar uma cópia deste repositório.
 
 ### 1️⃣ Fork do Repositório
 
-<img width="219" height="45" alt="image" src="https://github.com/user-attachments/assets/5d629626-513a-445c-ba0f-e5bb3e225187" />
-
-1. No canto superior direito desta página, clique em **Fork**  
-2. Uma cópia deste repositório será criada no **seu perfil do GitHub**
+No canto superior direito desta página, clique em **Fork**. Uma cópia deste repositório será criada no **seu perfil do GitHub**.
 (*O Fork permite que você trabalhe de forma independente sem alterar o repositório original.*)
 
-
-
 ### 2️⃣ Clone do Repositório
-
-<img width="149" height="52" alt="image" src="https://github.com/user-attachments/assets/abbd331b-a005-4633-89c6-afd16acbe828" />
 
 No repositório do **seu Fork**, clique em **<> Code**, copie a URL e execute:
 
@@ -78,199 +61,73 @@ No repositório do **seu Fork**, clique em **<> Code**, copie a URL e execute:
 git clone https://github.com/SEU_USUARIO/nome-do-repositorio.git
 cd nome-do-repositorio
 ```
-(*O comando `git clone` cria uma cópia do repositório.*)
-
-
 
 ### 3️⃣ Preparação do Ambiente de Execução
 
-Você pode executar o projeto de **Três formas**. Escolha apenas uma.
+Você pode executar o projeto de **três formas**. Escolha apenas uma.
 
+#### Opção A – Ambiente Python Local
+Requisitos: Python **3.10 ou 3.11** e pip.
 
-
-#### Opção A – Ambiente Python Local 
-Requisitos:
-- Python **3.10 ou 3.11**
-- pip
-
-Instale as dependências com:
+As dependências ficam dentro da pasta do projeto escolhido (veja Passo 2), então instale-as **depois** de escolher seu projeto:
 
 ```bash
+cd projetos/<pasta-do-projeto-escolhido>
 pip install -r requirements.txt
 ```
 
-
-
-#### Opção B – Dev Container 
+#### Opção B – Dev Container
 Este repositório inclui um **Dev Container** para facilitar a criação de um ambiente Python padronizado.
 
-**Requisitos**
-- VS Code
-- Docker instalado
-- Extensão **Dev Containers**
+**Requisitos:** VS Code, Docker instalado, extensão **Dev Containers**.
 
-**Passos**
-1. Abra o repositório no VS Code  
-2. Selecione **“Reopen in Container”**  
-3. Aguarde a criação automática do ambiente  
+**Passos:** abra o repositório no VS Code → **"Reopen in Container"** → aguarde a criação automática do ambiente.
 
-➡️ As dependências serão instaladas automaticamente.
-
-
-#### Opção C - via browser
-Você também pode abrir o container via github codespace
-
+#### Opção C – via browser (GitHub Codespaces)
 1. Clique em **<> Code**
 2. Clique em **Codespaces**
-3. Clique em **Create codespace on image**
+3. Clique em **Create codespace on main**
 
-<img width="482" height="436" alt="image" src="https://github.com/user-attachments/assets/37a1e99d-66d2-4730-b824-26f834bd8cc3" />
-
-
->  Será aberto uma instância do VS Code no seu navegador com o container configurado
-
+> Será aberta uma instância do VS Code no seu navegador com o container configurado.
 
 ---
 
-## 💻 Passo 2: O Desafio Técnico
+## 🧭 Passo 2: Escolha do Projeto
 
-O desafio consiste em desenvolver um **modelo de Visão Computacional** capaz de **classificar dígitos manuscritos**, e posteriormente **otimizá-lo para execução em dispositivos Edge**, como sistemas embarcados e IoT.
+Este desafio oferece **três opções de projeto**, todas em Visão Computacional e com **níveis de dificuldade equivalentes**. Você deve escolher **apenas uma**.
 
-O foco não é apenas obter alta acurácia, mas também **compreender o fluxo completo**:
+| # | Projeto | Tarefa | Dataset |
+|---|---------|--------|---------|
+| 1 | [Classificação MNIST](projetos/1-classificacao-mnist/README.md) | Classificação de dígitos manuscritos (0-9) | `tf.keras.datasets.mnist` |
+| 2 | [Classificação CIFAR-10](projetos/2-classificacao-cifar/README.md) | Classificação de imagens coloridas (10 categorias de objetos/animais) | `tf.keras.datasets.cifar10` |
+| 3 | [Detecção de Máscaras Faciais](projetos/3-deteccao-mascaras/README.md) | Detecção de objetos: localizar rostos e classificar uso de máscara (fine-tuning de YOLO) | Face Mask Detection (Kaggle, CC0) — já incluso no repositório |
 
-**treinamento → salvamento → conversão → otimização**
+Clique no link do projeto escolhido para ver as instruções técnicas completas e o template do relatório.
 
+### ⚠️ Depois de escolher, você DEVE:
 
+1. Trabalhar **apenas** dentro da pasta do projeto escolhido (`projetos/N-nome-do-projeto/`).
+2. **Apagar as pastas dos outros dois projetos** dentro de `projetos/` antes do commit final.
+3. Manter os nomes de arquivos e a estrutura interna da pasta do projeto **sem alterações**.
 
-### 🎯 Conjunto de Dados
-
-Será utilizado o dataset **MNIST**, composto por imagens de dígitos manuscritos de **0 a 9**.
-<img width="500" height="294" alt="image" src="https://github.com/user-attachments/assets/f323b4cc-d759-4e05-bb58-13e4d6dc7e5b" />
-
-✔️ O dataset já está disponível na biblioteca **TensorFlow/Keras**, não sendo necessário download manual.
-
-📌 *O MNIST é amplamente utilizado para introdução à Visão Computacional e Redes Neurais.*
-
-
-
-###  ✅ Requisitos Obrigatórios
-
-**Etapa 1:**  Treinamento do Modelo (`train_model.py`)
-
-Implemente no arquivo `train_model.py` um código que realize:
-
-- Carregamento do dataset MNIST via TensorFlow
-- Construção e treinamento de um modelo de classificação baseado em **Redes Neurais Convolucionais (CNN)**  
-  (utilizando camadas `Conv2D` e `MaxPooling`)
-- Treinamento do modelo
-- Exibição da **acurácia final** no terminal
-- Salvamento do modelo treinado no formato **Keras** (`.h5`)
-
-(*O modelo salvo será utilizado na etapa de otimização.*)
-
-
-
-**Etapa 2:** Otimização do Modelo (`optimize_model.py`)
-
-No arquivo `optimize_model.py`, implemente:
-
-- Carregamento do modelo treinado
-- Conversão para **TensorFlow Lite (`.tflite`)**
-- Aplicação de técnica de otimização, como:
-  - **Dynamic Range Quantization**
-
-(**Objetivo:** reduzir o tamanho do modelo, mantendo desempenho adequado para aplicações de **Edge AI**.)
-
-
-
-### 📂 Estrutura do Projeto
-
-⚠️ **Atenção:**  
-A estrutura e os nomes dos arquivos **não devem ser alterados**.
-
-```plaintext
-seu-repositorio/
-├── .github/
-│   └── workflows/
-│       └── ci.yml            # 🤖 Pipeline de correção automática (NÃO ALTERAR)
-├── .devcontainer/            # 🐳 Dev Container (opcional)
-│   └── devcontainer.json
-├── train_model.py            # ✏️ Treinamento do modelo
-├── optimize_model.py         # ✏️ Conversão e otimização
-├── requirements.txt          # 📄 Dependências do projeto
-├── model.h5                  # 🤖 Modelo treinado (gerado)
-├── model.tflite              # ⚡ Modelo otimizado (gerado)
-└── README.md                 # 📝 Relatório final do candidato
-```
-
-
-
-### ⚠️ Restrições e Considerações de Engenharia
-
-Este desafio é avaliado automaticamente por meio de um pipeline de
-**integração contínua (CI)**, executado em um ambiente controlado e com
-restrições de recursos computacionais.
-
-Você **não precisa conhecer GitHub Actions** para realizar o desafio.
-No entanto, é importante respeitar as diretrizes abaixo.
-
-**Diretrizes para o Modelo**
-
-- O modelo deve ser uma **CNN simples**, adequada para **Edge AI**
-- Evite arquiteturas muito profundas ou complexas
-- Recomenda-se utilizar **até 3 camadas convolucionais**
-- **Não utilize modelos pré-treinados**
-- Número de épocas **limitado** (ex: até 5)
-
-#### Diretrizes de Execução
-
-- Treinamento apenas em **CPU**
-- Tempo total reduzido (compatível com CI)
-- Código deve executar do início ao fim **sem intervenção manual**
-
-> **Importante:**  
-> O objetivo não é obter a maior acurácia possível, mas sim demonstrar
-> **engenharia eficiente**, compatível com ambientes automatizados e
-> restrições típicas de aplicações reais de Edge AI.
-
-
-
-### 📚 Material de Apoio
-
-Os cursos realizados na etapa anterior **devem ser utilizados como referência**.
-
-- 📘 **Fundamentos de Inteligência Artificial para Sistemas Embarcados**
-- 👁️ **Sistemas de Visão Computacional Embarcada**
-- ⚙️ **Otimização de Modelos em Sistemas Embarcados**
-
-(*Os exemplos apresentados nesses cursos podem ser adaptados e reutilizados neste desafio.*)
-
-
-
-### ⚖️ Critérios de Avaliação
-
-A avaliação considerará:
-
-- **Funcionalidade**  
-  Execução correta dos scripts e geração dos arquivos `.h5` e `.tflite`
-
-- **Edge AI**  
-  Conversão correta para `.tflite` e aplicação de técnica de otimização
-
-- **Documentação**  
-  Preenchimento adequado do relatório (README.md)
+> 🤖 **Por quê apagar as outras pastas?**
+> A correção automática (GitHub Actions) identifica qual projeto você escolheu verificando qual pasta restou dentro de `projetos/`. Se mais de uma pasta permanecer (ou nenhuma), a validação falha automaticamente com uma mensagem explicando o problema.
 
 ---
 
 ## 📤 Passo 3: Instruções de Entrega
 
-### ✔️ Validação 
+### ✔️ Antes de enviar
 
-Antes do envio, execute os scripts e confirme a geração dos arquivos:
-- `model.h5`
-- `model.tflite`
+Dentro da pasta do seu projeto, execute os scripts e confirme que os arquivos foram gerados:
 
+```bash
+cd projetos/<pasta-do-projeto-escolhido>
+python train_model.py       # deve gerar model.h5 (Projetos 1 e 2) ou model.pt (Projeto 3)
+python optimize_model.py    # deve gerar model.tflite
+```
 
+> ⚠️ **Importante:** a correção automática **não treina nada por você**. Ela valida os artefatos que **você gerou localmente e enviou (commitou) para o repositório**. Se esses arquivos não estiverem no seu commit, a validação falha.
 
 ### ⬆️ Envio do Código
 
@@ -280,17 +137,11 @@ git commit -m "Entrega do desafio técnico - Seu Nome"
 git push origin main
 ```
 
-
-
 ### 🔍 Verificação Automática
 
-1. Acesse a aba **Actions** no GitHub  
-2. Verifique se o workflow foi executado com sucesso (✅)  
+1. Acesse a aba **Actions** no GitHub do seu Fork
+2. Verifique se o workflow foi executado com sucesso (✅)
 3. Em caso de erro (❌), consulte os logs, corrija e envie novamente
-
-<img width="807" height="363" alt="image" src="https://github.com/user-attachments/assets/d991d35b-2bc2-48f7-9ac7-cf5ca9dc452a" />
-
-
 
 ### 📎 Submissão Final
 
@@ -298,64 +149,41 @@ Copie o link do seu repositório e envie conforme orientações do processo sele
 
 ---
 
-## 📝 Relatório do Candidato
+## ⚠️ Restrições Gerais de Engenharia
 
-O arquivo (`README.md`) deve ser utilizado como **relatório final do desafio**.
+Válidas para os três projetos (detalhes específicos estão no README de cada um):
 
-Preencha todas as seções de forma clara e objetiva.
+- Treinamento apenas em **CPU**
+- Sem uso de modelos pré-treinados — **exceto no Projeto 3**, onde o fine-tuning
+  de um modelo pré-treinado (YOLO11n) é intencional e faz parte do desafio
+- Número de épocas limitado (compatível com execução rápida — exceto o Projeto 3,
+  que naturalmente leva mais tempo por envolver fine-tuning de um detector)
+- Código deve executar do início ao fim **sem intervenção manual**
+- Os artefatos do modelo treinado e do modelo otimizado (`model.h5`/`model.pt` e
+  `model.tflite`, dependendo do projeto) **devem ser gerados localmente e
+  enviados (commitados) junto com o código** — a correção automática apenas os
+  valida, não os gera
 
-> 💡 Dica: não é necessário um relatório extenso.  
-> O mais importante é demonstrar **clareza nas decisões técnicas**.
+> **Importante:** o objetivo não é obter a maior acurácia possível, mas sim demonstrar **engenharia eficiente** e a capacidade de entregar um pipeline completo e reprodutível.
 
+---
 
+## 📚 Material de Apoio
 
-**Exemplo:**
+Os cursos realizados na etapa anterior **devem ser utilizados como referência**:
 
-👤 Identificação: **Nome Completo:**
+- 📘 Fundamentos de Inteligência Artificial para Sistemas Embarcados
+- 👁️ Sistemas de Visão Computacional Embarcada
+- ⚙️ Otimização de Modelos em Sistemas Embarcados
 
-
-### 1️⃣ Resumo da Arquitetura do Modelo
-
-Descreva, em palavras, a arquitetura da **CNN** implementada no arquivo
-`train_model.py`.
-
-
-
-### 2️⃣ Bibliotecas Utilizadas
-
-Liste as principais bibliotecas utilizadas no projeto, preferencialmente
-com suas versões.
-
-
-
-### 3️⃣ Técnica de Otimização do Modelo
-
-Explique qual técnica foi utilizada para otimizar o modelo no arquivo
-`optimize_model.py`.
-
-
-
-### 4️⃣ Resultados Obtidos
-
-Informe o principal resultado obtido após o treinamento do modelo.
-
-
-
-### 5️⃣ Comentários Adicionais (Opcional)
-
-Utilize este espaço para comentar:
-- Dificuldades encontradas  
-- Decisões técnicas importantes  
-- Limitações do modelo  
-- Aprendizados durante o desafio
-
+---
 
 ## 🆘 Suporte
 
 Em caso de dúvidas:
 
 - Consulte o material dos cursos EAD
-- Leia atentamente este README
+- Leia atentamente este README e o README do projeto escolhido
 - Analise os logs das GitHub Actions
 - Utilize os canais oficiais para contato com os instrutores
 

@@ -85,23 +85,23 @@ projetos/1-classificacao-mnist/
 
 ## 📝 Relatório do Candidato
 
-👤 **Nome Completo:**
+👤 **Nome Completo:** Marcos José Chagas Souza
 
 ### 1️⃣ Resumo da Arquitetura do Modelo
 
-Descreva, em palavras, a arquitetura da CNN implementada em `train_model.py` (número de blocos convolucionais, uso de batch normalization/dropout, estratégia de validação/early stopping).
+CNN com 3 blocos convolucionais: Conv2D(32 → 64 → 128 filtros, 3×3, ReLU, padding same) + BatchNormalization + MaxPooling2D(2×2) em cada bloco, seguida de Flatten + Dropout(30%) + Dense(128, ReLU) + Dense(10, softmax). Treinada por 15 épocas com validation_split=0.2, batch_size=128, otimizador Adam, loss sparse categorical crossentropy. Sem early stopping para garantir as 15 épocas completas.
 
 ### 2️⃣ Bibliotecas Utilizadas
 
-Liste as principais bibliotecas utilizadas, preferencialmente com suas versões.
+Python 3.12, TensorFlow 2.21.0, NumPy 2.5.1
 
 ### 3️⃣ Técnica de Otimização do Modelo
 
-Explique qual técnica foi utilizada para otimizar o modelo em `optimize_model.py`.
+Dynamic Range Quantization — converte os pesos do modelo de float32 para inteiro8 no momento da inferência, mantendo as ativações em float32. Aplicada via `converter.optimizations = [tf.lite.Optimize.DEFAULT]` no `TFLiteConverter`, reduzindo o modelo de 2,9 MB para 251 KB (~11x menor).
 
 ### 4️⃣ Resultados Obtidos
 
-Informe a acurácia de validação obtida e o tamanho dos arquivos `model.h5` e `model.tflite`.
+Acurácia de validação: 99,13%. model.h5: 2,9 MB. model.tflite: 251 KB.
 
 ### 5️⃣ Comentários Adicionais (Opcional)
 
@@ -109,4 +109,14 @@ Dificuldades encontradas, decisões técnicas importantes, limitações do model
 
 ### 6️⃣ Exemplo de Inferência
 
-Cole a saída do terminal ao rodar `run_inference.py` (predito vs. real para as 5+ amostras), e comente brevemente se houve algum caso interessante (acerto ou erro) entre as amostras testadas.
+```
+Rodando inferencia em 5 amostras usando model.tflite:
+
+Amostra 1: predito=7 | real=7
+Amostra 2: predito=2 | real=2
+Amostra 3: predito=1 | real=1
+Amostra 4: predito=0 | real=0
+Amostra 5: predito=4 | real=4
+```
+
+Todas as 5 amostras foram classificadas corretamente, demonstrando que a quantização dinâmica não comprometeu a acurácia do modelo para este dataset.

@@ -93,7 +93,7 @@ CNN com 3 blocos convolucionais: Conv2D(32 → 64 → 128 filtros, 3×3, ReLU, p
 
 ### 2️⃣ Bibliotecas Utilizadas
 
-Python 3.12, TensorFlow 2.21.0, NumPy 2.5.1
+Python 3.12, TensorFlow 2.17.1, NumPy 1.26.4
 
 ### 3️⃣ Técnica de Otimização do Modelo
 
@@ -101,7 +101,7 @@ Dynamic Range Quantization — converte os pesos do modelo de float32 para intei
 
 ### 4️⃣ Resultados Obtidos
 
-Acurácia de validação: 99,13%. model.h5: 2,9 MB. model.tflite: 251 KB.
+Acurácia no teste: 99,15%. model.h5: 2,9 MB. model.tflite: 250 KB (~12x menor).
 
 ### 5️⃣ Comentários Adicionais (Opcional)
 

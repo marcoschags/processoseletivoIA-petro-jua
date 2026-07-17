@@ -1,6 +1,7 @@
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
+from tensorflow.keras.callbacks import EarlyStopping
 
 (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
 
@@ -36,7 +37,7 @@ history = model.fit(
     validation_split=0.2,
     epochs=15,
     batch_size=128,
-    callbacks=[],
+    callbacks=[EarlyStopping(monitor="val_loss", patience=5, restore_best_weights=True)],
     verbose=1,
 )
 

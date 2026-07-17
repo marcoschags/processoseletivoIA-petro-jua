@@ -89,7 +89,7 @@ projetos/1-classificacao-mnist/
 
 ### 1️⃣ Resumo da Arquitetura do Modelo
 
-CNN com 3 blocos convolucionais: Conv2D(32 → 64 → 128 filtros, 3×3, ReLU, padding same) + BatchNormalization + MaxPooling2D(2×2) em cada bloco, seguida de Flatten + Dropout(30%) + Dense(128, ReLU) + Dense(10, softmax). Treinada por 15 épocas com validation_split=0.2, batch_size=128, otimizador Adam, loss sparse categorical crossentropy. Sem early stopping para garantir as 15 épocas completas.
+CNN com 3 blocos convolucionais: Conv2D(32 → 64 → 128 filtros, 3×3, ReLU, padding same) + BatchNormalization + MaxPooling2D(2×2) em cada bloco, seguida de Flatten + Dropout(30%) + Dense(128, ReLU) + Dense(10, softmax). Treinada com validation_split=0.2, batch_size=128, otimizador Adam, loss sparse categorical crossentropy e EarlyStopping(patience=5, restore_best_weights=True) para evitar overfitting, monitorando val_loss. A patience de 5 foi escolhida por ser um valor comum que permite convergência sem prolongar o treino desnecessariamente, e restore_best_weights garante que o modelo salvo seja o de melhor validação, não o da última época.
 
 ### 2️⃣ Bibliotecas Utilizadas
 
@@ -97,15 +97,15 @@ Python 3.12, TensorFlow 2.17.1, NumPy 1.26.4
 
 ### 3️⃣ Técnica de Otimização do Modelo
 
-Dynamic Range Quantization — converte os pesos do modelo de float32 para inteiro8 no momento da inferência, mantendo as ativações em float32. Aplicada via `converter.optimizations = [tf.lite.Optimize.DEFAULT]` no `TFLiteConverter`, reduzindo o modelo de 2,9 MB para 251 KB (~11x menor).
+Dynamic Range Quantization — converte os pesos do modelo de float32 para inteiro8 no momento da inferência, mantendo as ativações em float32. Aplicada via `converter.optimizations = [tf.lite.Optimize.DEFAULT]` no `TFLiteConverter`, reduzindo o modelo de 2,90 MB para 249 KB (~12x menor).
 
 ### 4️⃣ Resultados Obtidos
 
-Acurácia no teste: 99,15%. model.h5: 2,9 MB. model.tflite: 250 KB (~12x menor).
+Acurácia no teste: 99,33%. model.h5: 2,90 MB (2.909 KB). model.tflite: 249 KB (~12x menor).
 
 ### 5️⃣ Comentários Adicionais (Opcional)
 
-Dificuldades encontradas, decisões técnicas importantes, limitações do modelo, aprendizados durante o desafio.
+O principal desafio foi a incompatibilidade de serialização entre versões do Keras: o Keras 3.15+ passou a incluir `input_axes`/`output_axes` no `get_config()` do `GlorotUniform`, mas versões anteriores do Keras 3 não aceitam esses campos no `__init__`. Isso impedia o carregamento do `model.h5` no ambiente de CI, que usava Keras 3.4. A solução foi pinar `tensorflow==2.17.1` e `keras==3.4.1` no `requirements.txt`, garantindo que o modelo fosse salvo e carregado com a mesma versão do Keras, eliminando o erro de desserialização. Outra decisão foi manter 3 blocos convolucionais em vez de 4 — o 4º bloco adicionava ~100k parâmetros com ganho marginal de acurácia (<0,1%), então optou-se por uma rede mais enxuta para reduzir o tempo de treinamento em CPU.
 
 ### 6️⃣ Exemplo de Inferência
 
